@@ -144,6 +144,10 @@ def main():
 		print("Número gracioso")
 		main()
 
+	elif opcion == 420:
+		print("Número gracioso")
+		main()
+
 	elif opcion == 727:
 		print("Descubriste el easter egg XD CLV WYSI")
 		time.sleep(1)
@@ -151,7 +155,7 @@ def main():
 		main()
 
 	else:
-		print("Dije 1 o 2, pinche disléxico")
+		print("Pon una de las opciones, pinche disléxico")
 		print("Como pongas otra gilipollez te mato")
 		opcion = (int(input("ELIGE EL PINCHE NÚMERO: ")))
 		print("ERA BAIT XD")
