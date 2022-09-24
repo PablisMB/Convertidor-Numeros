@@ -1,10 +1,13 @@
 # -*- coding: utf-8 -*-
-# Versión: 1.1
+# Versión: 1.1.1
 
 import time
 import webbrowser
 
 print("Hecho por @PablisMB")
+print("Versión 1.1.1")
+
+print("")
 
 def main():
 	print("Elige de que a que pasar el número")
@@ -106,8 +109,8 @@ def main():
 		return ascii
 
 	if opcion == 1:
-		decimal = int(input("Introduce un número decimal: "))
-		decimalABinario(decimal)
+		numero_decimal = int(input("Introduce un número decimal: "))
+		decimalABinario(numero_decimal)
 		main()
 
 	elif opcion == 2:
@@ -116,8 +119,8 @@ def main():
 		main()
 	
 	elif opcion == 3:
-		decimal= int(input("Introduce un número decimal: "))
-		print(decimalAOctal(decimal))
+		numero_decimal= int(input("Introduce un número decimal: "))
+		print(decimalAOctal(numero_decimal))
 		main()
 	
 	elif opcion == 4:
@@ -126,8 +129,8 @@ def main():
 		main()
 
 	elif opcion == 5:
-		decimal= int(input("Introduce un número decimal: "))
-		print(decimalAHexadecimal(decimal))
+		numero_decimal= int(input("Introduce un número decimal: "))
+		print(decimalAHexadecimal(numero_decimal))
 		main()
 
 	elif opcion == 6:
@@ -136,8 +139,8 @@ def main():
 		main()
 
 	elif opcion == 7:
-		decimal= int(input("Introduce un número decimal: "))
-		print(decimalAAscii(decimal))
+		numero_decimal= int(input("Introduce un número decimal: "))
+		print(decimalAAscii(numero_decimal))
 		main()
 
 	elif opcion == 69:
@@ -155,7 +158,7 @@ def main():
 		main()
 
 	else:
-		print("Pon una de las opciones, pinche disléxico")
+		print("Pon una de las opciones pinche disléxico")
 		print("Como pongas otra gilipollez te mato")
 		opcion = (int(input("ELIGE EL PINCHE NÚMERO: ")))
 		print("ERA BAIT XD")
