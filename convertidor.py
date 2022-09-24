@@ -18,6 +18,11 @@ def main():
 	print("5. Decimal a hexadecimal")
 	print("6. Hexadecimal a decimal")
 	print("7. Decimal a ASCII")
+	print("8. ASCII a decimal")
+	print("9. Texto a ASCII")
+	print("10. Salir")
+	print("")
+
 	opcion = int(input("Elige una opción: "))
 	
 	def decimalABinario(numero_decimal):
@@ -108,6 +113,16 @@ def main():
 		ascii = chr(numero_decimal)
 		return ascii
 
+	def asciiADecimal(numero_ascii):
+		decimal = ord(numero_ascii)
+		return decimal
+	
+	def stringAAscii(string):
+		ascii = ""
+		for i in string:
+			ascii = ascii + str(ord(i)) + " "
+		return ascii
+
 	if opcion == 1:
 		numero_decimal = int(input("Introduce un número decimal: "))
 		decimalABinario(numero_decimal)
@@ -142,6 +157,22 @@ def main():
 		numero_decimal= int(input("Introduce un número decimal: "))
 		print(decimalAAscii(numero_decimal))
 		main()
+
+	elif opcion == 8:
+		numero_ascii= input("Introduce un número ascii: ")
+		print(asciiADecimal(numero_ascii))
+		main()
+
+	elif opcion == 9:
+		string = input("Introduce un texto: ")
+		print(stringAAscii(string))
+		main()
+
+	elif opcion == 10:
+		print("*Inserta outro*")
+		webbrowser.open("https://youtu.be/FX9eEhoRZhY?t=7")
+		time.sleep(10)
+		exit()
 
 	elif opcion == 69:
 		print("Número gracioso")
