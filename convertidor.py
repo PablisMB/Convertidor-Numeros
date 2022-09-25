@@ -1,30 +1,69 @@
 # -*- coding: utf-8 -*-
-# Versión: 1.1.1
+# Versión: 1.2
 
+from colorama import init
+import os
 import time
 import webbrowser
 
-print("Hecho por @PablisMB")
-print("Versión 1.1.1")
+init()
+init(autoreset=True)
 
-print("")
+class style():
+	NEGRO = '\033[90m'
+	ROJO = '\033[91m'
+	ROJO_SANGRE = '\033[31m'
+	VERDE = '\033[92m'
+	AMARILLO = '\033[93m'
+	AZUL = '\033[94m'
+	MAGENTA = '\033[95m'
+	CYAN = '\033[96m'
+	BLANCO = '\033[97m'
+	SUBRAYADO = '\033[4m'
+	BOLD = '\033[1m'
+	RESET = '\033[0m'
 
-def main():
-	print("Elige de que a que pasar el número")
-	print("1. Decimal a binario")
-	print("2. Binario a decimal")
-	print("3. Decimal a octal")
-	print("4. Octal a decimal")
-	print("5. Decimal a hexadecimal")
-	print("6. Hexadecimal a decimal")
-	print("7. Decimal a ASCII")
-	print("8. ASCII a decimal")
-	print("9. Texto a ASCII")
-	print("10. Salir")
+def logo():
+	os.system("cls")
+	print(style.CYAN + "##############_#####_#_###############_#####")
+	print(style.CYAN + "#############|#|###|#(_)#############|#|####")
+	print(style.CYAN + "##_#__###__#_|#|__#|#|_#___#_#__#___#|#|__##")
+	print(style.CYAN + "#|#'_#\#/#_`#|#'_#\|#|#/#__|#'_#`#_#\|#'_#\#")
+	print(style.CYAN + "#|#|_)#|#(_|#|#|_)#|#|#\__#|#|#|#|#|#|#|_)#|")
+	print(style.CYAN + "#|#.__/#\__,_|_.__/|_|_|___|_|#|_|#|_|_.__/#")
+	print(style.CYAN + "#|#|########################################")
+	print(style.CYAN + "#|_|########################################")
 	print("")
 
-	opcion = int(input("Elige una opción: "))
+	print(style.VERDE + "Versión 1.2")
+	print("")
+
+def main():
+	print(style.AZUL + "Elige de que a que pasar el número")
+	print("")
+	print(style.BOLD + "1. Decimal a binario")
+	print(style.BOLD + "2. Binario a decimal")
+	print(style.BOLD + "3. Decimal a octal")
+	print(style.BOLD + "4. Octal a decimal")
+	print(style.BOLD + "5. Decimal a hexadecimal")
+	print(style.BOLD + "6. Hexadecimal a decimal")
+	print(style.BOLD + "7. Decimal a ASCII")
+	print(style.BOLD + "8. ASCII a decimal")
+	print(style.BOLD + "9. Texto a ASCII")
+	print(style.BOLD + "10. ASCII a texto")
+	print("")
+	print(style.AMARILLO + "11. Opciones")
+	print("")
+	print(style.ROJO + "0. Salir")
+	print("")
+
+	opcion = int(input(style.VERDE + "Elige una opción: "))
+	print("")
 	
+	os.system("")
+
+	style()
+
 	def decimalABinario(numero_decimal):
 		if numero_decimal <= 0:
 			return "0"
@@ -123,79 +162,173 @@ def main():
 			ascii = ascii + str(ord(i)) + " "
 		return ascii
 
+	def asciiAString(ascii):
+		string = ""
+		for i in ascii.split():
+			string = string + chr(int(i))
+		return string
+
 	if opcion == 1:
 		numero_decimal = int(input("Introduce un número decimal: "))
 		decimalABinario(numero_decimal)
+		print("")
 		main()
 
 	elif opcion == 2:
 		numero_binario = input("Introduce un número binario: ")
 		print(binarioADecimal(numero_binario))
+		print("")
 		main()
 	
 	elif opcion == 3:
 		numero_decimal= int(input("Introduce un número decimal: "))
 		print(decimalAOctal(numero_decimal))
+		print("")
 		main()
 	
 	elif opcion == 4:
 		numero_octal= input("Introduce un número octal: ")
 		print(octalADecimal(numero_octal))
+		print("")
 		main()
 
 	elif opcion == 5:
 		numero_decimal= int(input("Introduce un número decimal: "))
 		print(decimalAHexadecimal(numero_decimal))
+		print("")
 		main()
 
 	elif opcion == 6:
 		numero_hexadecimal= input("Introduce un número hexadecimal: ")
 		print(hexadecimalADecimal(numero_hexadecimal))
+		print("")
 		main()
 
 	elif opcion == 7:
 		numero_decimal= int(input("Introduce un número decimal: "))
 		print(decimalAAscii(numero_decimal))
+		print("")
 		main()
 
 	elif opcion == 8:
 		numero_ascii= input("Introduce un número ascii: ")
 		print(asciiADecimal(numero_ascii))
+		print("")
 		main()
 
 	elif opcion == 9:
 		string = input("Introduce un texto: ")
 		print(stringAAscii(string))
+		print("")
 		main()
 
 	elif opcion == 10:
-		print("*Inserta outro*")
+		ascii = input("Introduce un texto en ascii: ")
+		print(asciiAString(ascii))
+		print("")
+		main()
+
+	elif opcion == 11:
+		print(style.BOLD + "1. Limpiar consola")
+		print(style.BOLD + "2. Cambiar color de la consola")
+		print(style.BOLD + "3. Mostrar página de GitHub")
+		print(style.BOLD + "4. Volver al menú principal")
+		print("")
+
+		opcion_o = int(input(style.VERDE + "Elige una opción: "))
+
+		if opcion_o == 1:
+			os.system("cls")
+			logo()
+			main()
+
+		elif opcion_o == 2:
+			print(style.VERDE + "No te creas hacker :v")
+			time.sleep(2)
+			print("")
+			main()
+
+		elif opcion_o == 3:
+			webbrowser.open("https://github.com/PablisMB/Convertidor-Numeros")
+			print("")
+			main()
+		
+		elif opcion_o == 4:
+			print("")
+			main()
+
+	elif opcion == 0:
+		print(style.VERDE + "*Inserta outro*")
 		webbrowser.open("https://youtu.be/FX9eEhoRZhY?t=7")
 		time.sleep(10)
 		exit()
 
 	elif opcion == 69:
-		print("Número gracioso")
+		print(style.VERDE + "Número gracioso")
+		print("")
 		main()
 
 	elif opcion == 420:
-		print("Número gracioso")
+		print(style.VERDE + "Número gracioso")
+		print("")
+		main()
+
+	elif opcion == 666:
+		print(style.ROJO_SANGRE + "Tai, Tai estás ahí?")
+		print("")
+		time.sleep(3)
+		print(style.ROJO_SANGRE + "Tai, Tai estás ahí?")
+		print("")
+		time.sleep(3)
 		main()
 
 	elif opcion == 727:
-		print("Descubriste el easter egg XD CLV WYSI")
+		print(style.AZUL + "Descubriste el easter egg XD CLV WYSI")
 		time.sleep(1)
 		webbrowser.open("https://www.youtube.com/watch?v=vatcanQQJvQ")
+		print("")
+		main()
+
+	elif opcion == 911:
+		print(style.ROJO_SANGRE + "TOTALMENTE NO ES UNA REFERENCIA A UN DIA EN CONCRETO")
+		time.sleep(5)
+		print("")
+		print(style.BOLD + "No towers? No WTC? 9/11? Football > Soccer")
+		time.sleep(0.3)
+		os.system("cls")
+		logo()
+		main()
+
+	elif opcion == 42069:
+		print(style.AMARILLO + "Número muy gracioso")
+		print("")
+		main()
+
+	elif opcion == 69420:
+		print(style.AMARILLO + "Número muy gracioso")
+		print("")
 		main()
 
 	else:
-		print("Pon una de las opciones pinche disléxico")
-		print("Como pongas otra gilipollez te mato")
-		opcion = (int(input("ELIGE EL PINCHE NÚMERO: ")))
-		print("ERA BAIT XD")
+		print(style.ROJO_SANGRE + "Pon una de las opciones pinche disléxico")
+		print(style.ROJO_SANGRE + "Como pongas otra gilipollez te mato")
+		opcion = input(style.ROJO_SANGRE + "ELIGE EL PINCHE NÚMERO: ")
+		print(style.MAGENTA + "ERA BAIT XD")
 		time.sleep(2)
-		print("Valiste burguer")
+		print(style.ROJO + "Chau PC en 5")
 		time.sleep(1)
+		print(style.ROJO + "4")
+		time.sleep(1)
+		print(style.ROJO + "3")
+		time.sleep(1)
+		print(style.ROJO + "2")
+		time.sleep(1)
+		print(style.ROJO + "1")
+		time.sleep(1)
+		print(style.ROJO_SANGRE + "Valiste burguer")
+		time.sleep(1)
+		print(style.CYAN + "WAZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+		time.sleep(0.5)
 		webbrowser.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", new=1, autoraise=True)
 		webbrowser.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", new=1, autoraise=True)
 		webbrowser.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", new=1, autoraise=True)
@@ -207,5 +340,6 @@ def main():
 		webbrowser.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", new=1, autoraise=True)
 		webbrowser.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", new=1, autoraise=True)
 		exit()
-
+		
+logo()
 main()
