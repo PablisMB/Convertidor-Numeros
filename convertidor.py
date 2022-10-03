@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Versión: 1.2
+# Versión: 1.2.1
 
 from colorama import init
 import os
@@ -25,17 +25,19 @@ class style():
 
 def logo():
 	os.system("cls")
-	print(style.CYAN + "##############_#####_#_###############_#####")
-	print(style.CYAN + "#############|#|###|#(_)#############|#|####")
-	print(style.CYAN + "##_#__###__#_|#|__#|#|_#___#_#__#___#|#|__##")
-	print(style.CYAN + "#|#'_#\#/#_`#|#'_#\|#|#/#__|#'_#`#_#\|#'_#\#")
-	print(style.CYAN + "#|#|_)#|#(_|#|#|_)#|#|#\__#|#|#|#|#|#|#|_)#|")
-	print(style.CYAN + "#|#.__/#\__,_|_.__/|_|_|___|_|#|_|#|_|_.__/#")
-	print(style.CYAN + "#|#|########################################")
-	print(style.CYAN + "#|_|########################################")
+	print(style.CYAN + '''                      .o8       oooo   o8o                              .o8       
+                     "888       `888   `"'                             "888       
+oo.ooooo.   .oooo.    888oooo.   888  oooo   .oooo.o ooo. .oo.  .oo.    888oooo.  
+ 888' `88b `P  )88b   d88' `88b  888  `888  d88(  "8 `888P"Y88bP"Y88b   d88' `88b 
+ 888   888  .oP"888   888   888  888   888  `"Y88b.   888   888   888   888   888 
+ 888   888 d8(  888   888   888  888   888  o.  )88b  888   888   888   888   888 
+ 888bod8P' `Y888""8o  `Y8bod8P' o888o o888o 8""888P' o888o o888o o888o  `Y8bod8P' 
+ 888                                                                              
+o888o                                                                             
+                                                                                  ''')
 	print("")
 
-	print(style.VERDE + "Versión 1.2")
+	print(style.VERDE + "Versión 1.2.1")
 	print("")
 
 def main():
@@ -91,17 +93,17 @@ def main():
 		return octal
 
 	def octalADecimal(numero_octal):
-			decimal = 0
-			posicion = 0
-			numero_octal = numero_octal[::-1]
-			for digito in numero_octal:
-				valor_entero = int(digito)
-				numero_elevado = int(8 ** posicion)
-				equivalencia = int(numero_elevado * valor_entero)
-				decimal += equivalencia
-				posicion += 1
+		decimal = 0
+		posicion = 0
+		numero_octal = numero_octal[::-1]
+		for digito in numero_octal:
+			valor_entero = int(digito)
+			numero_elevado = int(8 ** posicion)
+			equivalencia = int(numero_elevado * valor_entero)
+			decimal += equivalencia
+			posicion += 1
 
-			return decimal
+		return decimal
 
 	def decimalAHexadecimal(numero_decimal):
 		hexadecimal = ""
@@ -211,7 +213,7 @@ def main():
 		main()
 
 	elif opcion == 8:
-		numero_ascii= input("Introduce un número ascii: ")
+		numero_ascii= input("Introduce un texto en ASCII: ")
 		print(asciiADecimal(numero_ascii))
 		print("")
 		main()
@@ -223,7 +225,7 @@ def main():
 		main()
 
 	elif opcion == 10:
-		ascii = input("Introduce un texto en ascii: ")
+		ascii = input("Introduce un texto en ASCII: ")
 		print(asciiAString(ascii))
 		print("")
 		main()
@@ -306,6 +308,13 @@ def main():
 
 	elif opcion == 69420:
 		print(style.AMARILLO + "Número muy gracioso")
+		print("")
+		main()
+
+	elif opcion == 72769420:
+		print(style.AMARILLO + "Bienvenido a TaiBombs")
+		time.sleep(1)
+		webbrowser.open("https://taibombs.webnode.es")
 		print("")
 		main()
 
