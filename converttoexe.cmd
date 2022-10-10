@@ -1,1 +1,1 @@
-pyinstaller --noconfirm --onefile --console --icon "C:/Users/papitas eme be/Downloads/acs.ico"  "E:/GitHub/Convertidor-Numeros/convertidor.py"
+pyinstaller --noconfirm --onefile --console --icon "Ruta de icono deseado"  "Ruta del script de python a convertir a exe"
