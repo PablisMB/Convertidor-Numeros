@@ -1,10 +1,13 @@
 # -*- coding: utf-8 -*-
-# Versión: 1.2.1
+# Versión: 1.3
 
 from colorama import init
+import logging
 import os
 import time
 import webbrowser
+
+logging.error("Error inesperado", exc_info=True)
 
 init()
 init(autoreset=True)
@@ -37,24 +40,25 @@ o888o
                                                                                   ''')
 	print("")
 
-	print(style.VERDE + "Versión 1.2.1")
+	print(style.VERDE + "Versión 1.3")
 	print("")
 
 def main():
 	print(style.AZUL + "Elige de que a que pasar el número")
 	print("")
 	print(style.BOLD + "1. Decimal a binario")
-	print(style.BOLD + "2. Binario a decimal")
-	print(style.BOLD + "3. Decimal a octal")
-	print(style.BOLD + "4. Octal a decimal")
-	print(style.BOLD + "5. Decimal a hexadecimal")
-	print(style.BOLD + "6. Hexadecimal a decimal")
-	print(style.BOLD + "7. Decimal a ASCII")
+	print(style.BOLD + "2. Decimal a octal")
+	print(style.BOLD + "3. Decimal a hexadecimal")
+	print(style.BOLD + "4. Decimal a ASCII")
+	print(style.BOLD + "5. Binario a decimal")
+	print(style.BOLD + "6. Octal a decimal")
+	print(style.BOLD + "7. Hexadecimal a decimal")
 	print(style.BOLD + "8. ASCII a decimal")
 	print(style.BOLD + "9. Texto a ASCII")
 	print(style.BOLD + "10. ASCII a texto")
+	print(style.BOLD + "11. Todo en uno")
 	print("")
-	print(style.AMARILLO + "11. Opciones")
+	print(style.AMARILLO + "12. Opciones")
 	print("")
 	print(style.ROJO + "0. Salir")
 	print("")
@@ -67,14 +71,12 @@ def main():
 	style()
 
 	def decimalABinario(numero_decimal):
-		if numero_decimal <= 0:
-			return "0"
-		binario = ""
-		while numero_decimal > 0:
-			residuo = int(numero_decimal % 2)
-			numero_decimal = int(numero_decimal / 2)
-			binario = str(residuo) + binario
-		print(binario)
+		if numero_decimal < 0:
+			return '-' + decimalABinario(abs(numero_decimal))
+		elif numero_decimal == 0:
+			return '0'
+		else:
+			return decimalABinario(numero_decimal // 2) + str(numero_decimal % 2)
 
 	def binarioADecimal(numero_binario):
 		numero_decimal = 0 
@@ -170,50 +172,62 @@ def main():
 			string = string + chr(int(i))
 		return string
 
+	def todoEnUno():
+		numero = int(input("Introduce el número: "))
+		print("")
+		print("El número en binario es: " + style.BOLD + str(decimalABinario(numero)))
+		print("")
+		print("El número en octal es: " + style.BOLD + str(decimalAOctal(numero)))
+		print("")
+		print("El número en hexadecimal es: " + style.BOLD + str(decimalAHexadecimal(numero)))
+		print("")
+		print("El número en ASCII es: " + style.BOLD + str(decimalAAscii(numero)))
+		print("")
+
 	if opcion == 1:
 		numero_decimal = int(input("Introduce un número decimal: "))
-		decimalABinario(numero_decimal)
+		print(decimalABinario(numero_decimal))
 		print("")
 		main()
 
 	elif opcion == 2:
-		numero_binario = input("Introduce un número binario: ")
-		print(binarioADecimal(numero_binario))
-		print("")
-		main()
-	
-	elif opcion == 3:
-		numero_decimal= int(input("Introduce un número decimal: "))
+		numero_decimal = int(input("Introduce un número decimal: "))
 		print(decimalAOctal(numero_decimal))
 		print("")
 		main()
-	
-	elif opcion == 4:
-		numero_octal= input("Introduce un número octal: ")
-		print(octalADecimal(numero_octal))
-		print("")
-		main()
 
-	elif opcion == 5:
-		numero_decimal= int(input("Introduce un número decimal: "))
+	elif opcion == 3:
+		numero_decimal = int(input("Introduce un número decimal: "))
 		print(decimalAHexadecimal(numero_decimal))
 		print("")
-		main()
+		main()		
 
-	elif opcion == 6:
-		numero_hexadecimal= input("Introduce un número hexadecimal: ")
-		print(hexadecimalADecimal(numero_hexadecimal))
-		print("")
-		main()
-
-	elif opcion == 7:
-		numero_decimal= int(input("Introduce un número decimal: "))
+	elif opcion == 4:
+		numero_decimal = int(input("Introduce un número decimal: "))
 		print(decimalAAscii(numero_decimal))
 		print("")
 		main()
 
+	elif opcion == 5:
+		numero_binario = (input("Introduce un número binario: "))
+		print(binarioADecimal(numero_binario))
+		print("")
+		main()
+	
+	elif opcion == 6:
+		numero_octal = (input("Introduce un número octal: "))
+		print(octalADecimal(numero_octal))
+		print("")
+		main()
+
+	elif opcion == 7:
+		numero_hexadecimal = (input("Introduce un número hexadecimal: "))
+		print(hexadecimalADecimal(numero_hexadecimal))
+		print("")
+		main()
+
 	elif opcion == 8:
-		numero_ascii= input("Introduce un texto en ASCII: ")
+		numero_ascii = input("Introduce un texto en ASCII: ")
 		print(asciiADecimal(numero_ascii))
 		print("")
 		main()
@@ -231,6 +245,10 @@ def main():
 		main()
 
 	elif opcion == 11:
+		todoEnUno()
+		main()
+
+	elif opcion == 12:
 		print(style.BOLD + "1. Limpiar consola")
 		print(style.BOLD + "2. Cambiar color de la consola")
 		print(style.BOLD + "3. Mostrar página de GitHub")

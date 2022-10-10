@@ -1,0 +1,1 @@
+pyinstaller --noconfirm --onefile --console --icon "C:/Users/papitas eme be/Downloads/acs.ico"  "E:/GitHub/Convertidor-Numeros/convertidor.py"
